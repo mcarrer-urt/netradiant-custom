@@ -421,6 +421,7 @@ binaries-radiant-plugins: \
 	$(INSTALLDIR)/plugins/prtview.$(DLL) \
 	$(INSTALLDIR)/plugins/shaderplug.$(DLL) \
 	$(INSTALLDIR)/plugins/sunplug.$(DLL) \
+	$(INSTALLDIR)/plugins/pyplug.$(DLL) \
 	$(INSTALLDIR)/plugins/ufoaiplug.$(DLL) \
 	$(INSTALLDIR)/plugins/meshtex.$(DLL) \
 
@@ -1138,6 +1139,11 @@ $(INSTALLDIR)/plugins/sunplug.$(DLL): LIBS_EXTRA := $(LIBS_GLIB) $(LIBS_QTCORE) 
 $(INSTALLDIR)/plugins/sunplug.$(DLL): CPPFLAGS_EXTRA := $(CPPFLAGS_GLIB) $(CPPFLAGS_QTCORE) $(CPPFLAGS_QTGUI) $(CPPFLAGS_QTWIDGETS) -Ilibs -Iinclude
 $(INSTALLDIR)/plugins/sunplug.$(DLL): \
 	contrib/sunplug/sunplug.o \
+
+$(INSTALLDIR)/plugins/pyplug.$(DLL): LIBS_EXTRA := $(LIBS_GLIB) $(LIBS_QTCORE) $(LIBS_QTGUI) $(LIBS_QTWIDGETS)
+$(INSTALLDIR)/plugins/pyplug.$(DLL): CPPFLAGS_EXTRA := $(CPPFLAGS_GLIB) $(CPPFLAGS_QTCORE) $(CPPFLAGS_QTGUI) $(CPPFLAGS_QTWIDGETS) -Ilibs -Iinclude
+$(INSTALLDIR)/plugins/pyplug.$(DLL): \
+	contrib/pyplug/pyplug.o \
 
 $(INSTALLDIR)/qdata3.$(EXE): LIBS_EXTRA := $(LIBS_XML)
 $(INSTALLDIR)/qdata3.$(EXE): CPPFLAGS_EXTRA := $(CPPFLAGS_XML) -Itools/quake2/common -Ilibs -Iinclude
